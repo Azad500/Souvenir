@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cardName: "Rockfeller binası Suvenir",
       discountPrice: "10 AZN",
       realPrice: "20 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 2,
@@ -14,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cardName: "Las Vegas Suvenir",
       discountPrice: "25 AZN",
       realPrice: "50 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 3,
@@ -21,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cardName: "Globus Suvenir",
       discountPrice: "12 AZN",
       realPrice: "24 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 4,
@@ -28,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cardName: "Masa Suvenir",
       discountPrice: "45 AZN",
       realPrice: "90 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
   ];
   const discountCards = document.querySelector(".cards-discount");
@@ -69,10 +77,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="star-element">
               ${starMarkup}
           </div>
-          <button>Ətraflı</button>
+          <button class="detail-button">Ətraflı</button>
           <h4>Tələs, endirim bitmədən sifariş ver!</h4>
       `;
     discountCards.appendChild(li);
+    const detailButton = li.querySelector(".detail-button");
+    detailButton.addEventListener("click", () => {
+      moduleElementsDiscount(element);
+    });
   });
 
   // -----------trending-products-----------
@@ -124,6 +136,13 @@ document.addEventListener("DOMContentLoaded", function () {
       realPrice: "53 AZN",
     },
   ];
+  // ------------realprice-sum-----
+  let sumPrice = 0;
+  for (let i = 0; i < exclusiveElements.length; i++) {
+    sumPrice += parseInt(exclusiveElements[i].realPrice.slice(0, 3));
+  }
+  let aboutExclusive =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?";
   const excCards = [
     {
       id: 1,
@@ -149,21 +168,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     li.innerHTML = `
         <div class="exc-image">
-            <img
-              src=${element.src}
-              alt=${element.cardName}
-            />
+          <img
+            src=${element.src}
+            alt=${element.cardName}
+          />
         </div>
         <h3>${element.cardName}</h3>
         <div class="value-element">
-            <p>Qiyməti :</p>
-            <p>${element.realPrice}</p>
+          <p>Qiyməti :</p>
+          <p>${element.realPrice}</p>
         </div>
         <div class="star-element">
-            ${starMarkup}
+          ${starMarkup}
         </div>
     `;
     cardsexclusive.appendChild(li);
+    const detailButton = document.querySelector(".order-now-container");
+    detailButton.addEventListener("click", () => {
+      moduleElementsExclusive(element);
+    });
   });
   const excCard = document.querySelector(".exc-card");
   excCards.map((element) => {
@@ -181,8 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
     li.innerHTML = `
         <div class="exc-image">
             <img
-                src=${element.src}
-                alt=${element.cardName}
+              src=${element.src}
+              alt=${element.cardName}
             />
         </div>
         <h3>${element.cardName}</h3>
@@ -203,264 +226,352 @@ document.addEventListener("DOMContentLoaded", function () {
       src: "./images/allCards/mountain.png",
       cardName: "Dağ Suvenir",
       realPrice: "35 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 2,
       src: "./images/allCards/kukla.png",
       cardName: "Kukla Suvenir",
       realPrice: "52 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 3,
       src: "./images/allCards/kuklalar.png",
       cardName: "Kuklalar Suvenir",
       realPrice: "65 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 4,
       src: "./images/header/lasVegas.webp",
       cardName: "Las Vegas Suvenir",
       realPrice: "25 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 5,
       src: "./images/allCards/taxtaQab.png",
       cardName: "Taxta qablar Suvenir",
       realPrice: "33 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 6,
       src: "./images/allCards/sandiq.png",
       cardName: "Sandıq Suvenir",
       realPrice: "45 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 7,
       src: "./images/header/apartment.avif",
       cardName: "Rockfeller binası Suvenir",
       realPrice: "10 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 8,
       src: "./images/allCards/saxsiQab.png",
       cardName: "Saxsı qab Suvenir",
       realPrice: "110 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 9,
       src: "./images/allCards/saxsiBosqab.png",
       cardName: "Saxsı boşqab Suvenir",
       realPrice: "200 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 10,
       src: "./images/header/table.jpg",
       cardName: "Masa Suvenir",
       realPrice: "45 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 11,
       src: "./images/allCards/acarliq.png",
       cardName: "Açarlıq Suvenir",
       realPrice: "10 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 12,
       src: "./images/allCards/atHeykelleri.png",
       cardName: "At heykəlləri Suvenir",
-      realPrice: "30-100 AZN",
+      realPrice: "100 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 13,
       src: "./images/allCards/dibcek.png",
       cardName: "Dibçək Suvenir",
       realPrice: "33 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 14,
       src: "./images/allCards/saxsiQablar.png",
       cardName: "Saxsı qablar Suvenir",
       realPrice: "140 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 15,
       src: "./images/header/globus.avif",
       cardName: "Globus Suvenir",
       realPrice: "12 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 16,
       src: "./images/allCards/heykeller.png",
       cardName: "Heykəllər Suvenir",
       realPrice: "60 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 17,
       src: "./images/trending/paris.webp",
       cardName: "Eyfel Suvenir",
       realPrice: "30 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 18,
       src: "./images/trending/plate.png",
       cardName: "Boşqab Suvenir",
       realPrice: "40 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 19,
       src: "./images/trending/antika.png",
       cardName: "Saxsı qablar Suvenir",
       realPrice: "120 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 20,
       src: "./images/trending/minimans.png",
       cardName: "Mini adamlar Suvenir",
       realPrice: "53 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 21,
       src: "./images/man/cup.png",
       cardName: "Fincan Suvenir",
       realPrice: "42 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 22,
       src: "./images/man/serabQabi.png",
       cardName: "Şərab qabı Suvenir",
       realPrice: "67 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 23,
       src: "./images/man/qapaqAcan.png",
       cardName: "Qapaq açan Suvenir",
       realPrice: "12 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 24,
       src: "./images/man/saat.png",
       cardName: "Cib Saatı Suvenir",
       realPrice: "115 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 25,
       src: "./images/man/qapaqAcan1.png",
       cardName: "Qapaq Açan Suvenir",
       realPrice: "35 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 26,
       src: "./images/man/adamlar.png",
       cardName: "Mini Men Suvenir",
       realPrice: "46 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 27,
       src: "./images/man/qolduymesi.png",
       cardName: "Qol Düyməsi Suvenir",
       realPrice: "39 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 28,
       src: "./images/man/serabQabi1.png",
       cardName: "Şərab qabı Suvenir",
       realPrice: "49 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 29,
       src: "./images/man/orduBicagi.png",
       cardName: "Ordu Bıçağı Suvenir",
       realPrice: "20 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 30,
       src: "./images/man/kopukQabi.png",
       cardName: "Köpük qabı Suvenir",
       realPrice: "30 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 31,
       src: "./images/man/gulle.png",
       cardName: "Güllə Suvenir",
       realPrice: "43 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 32,
       src: "./images/man/miniFutbolcu.png",
       cardName: "Futbolçu Suvenir",
       realPrice: "34 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 33,
       src: "./images/woman/esyaQabi.png",
       cardName: "Əşya qabı Suvenir",
       realPrice: "30 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 34,
       src: "./images/woman/kubik.png",
       cardName: "Kubik Suvenir",
       realPrice: "22 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 35,
       src: "./images/woman/brelok.png",
       cardName: "Açarlıq Suvenir",
       realPrice: "15 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 36,
       src: "./images/woman/mermer.png",
       cardName: "Mərmər Suvenir",
       realPrice: "75 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 37,
       src: "./images/woman/gul.png",
       cardName: "Süni gül Suvenir",
       realPrice: "25 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 38,
       src: "./images/woman/hediyye.png",
       cardName: "Hədiyyəlik Suvenir",
       realPrice: "50 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 39,
       src: "./images/woman/rengliQablar.png",
       cardName: "Rəngli qablar Suvenir",
       realPrice: "44 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 40,
       src: "./images/woman/lampa.png",
       cardName: "Lampa Suvenir",
       realPrice: "40 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 41,
       src: "./images/woman/hediyyelik.png",
       cardName: "Hediyyelik Suvenir",
       realPrice: "53 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 42,
       src: "./images/woman/taxtaLovhe.png",
       cardName: "Taxta lövhə Suvenir",
       realPrice: "39 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 43,
       src: "./images/woman/samQabi.png",
       cardName: "Şam qabı Suvenir",
       realPrice: "32 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 44,
       src: "./images/woman/taxta.png",
       cardName: "Taxta Suvenir",
       realPrice: "18 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
   ];
   const allCards = document.querySelector(".cards-all");
@@ -552,9 +663,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="star-element">
           ${starMarkup}
         </div>
-        <button>Ətraflı</button>
+        <button class="detail-button">Ətraflı</button>
     `;
       allCards.appendChild(li);
+      const detailButton = li.querySelector(".detail-button");
+      detailButton.addEventListener("click", () => {
+        moduleElementsAllCards(element);
+      });
       // -----------cards-clicked-----------
       li.addEventListener("click", () => {
         if (!isCardClicked) {
@@ -592,72 +707,96 @@ document.addEventListener("DOMContentLoaded", function () {
       src: "./images/man/cup.png",
       cardName: "Fincan Suvenir",
       realPrice: "42 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 2,
       src: "./images/man/serabQabi.png",
       cardName: "Şərab qabı Suvenir",
       realPrice: "67 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 3,
       src: "./images/man/qapaqAcan.png",
       cardName: "Qapaq açan Suvenir",
       realPrice: "12 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 4,
       src: "./images/man/saat.png",
       cardName: "Cib Saatı Suvenir",
       realPrice: "115 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 5,
       src: "./images/man/qapaqAcan1.png",
       cardName: "Qapaq Açan Suvenir",
       realPrice: "35 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 6,
       src: "./images/man/adamlar.png",
       cardName: "Mini Men Suvenir",
       realPrice: "46 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 7,
       src: "./images/man/qolduymesi.png",
       cardName: "Qol Düyməsi Suvenir",
       realPrice: "39 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 8,
       src: "./images/man/serabQabi1.png",
       cardName: "Şərab qabı Suvenir",
       realPrice: "49 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 9,
       src: "./images/man/orduBicagi.png",
       cardName: "Ordu Bıçağı Suvenir",
       realPrice: "20 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 10,
       src: "./images/man/kopukQabi.png",
       cardName: "Köpük qabı Suvenir",
       realPrice: "30 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 11,
       src: "./images/man/gulle.png",
       cardName: "Güllə Suvenir",
       realPrice: "43 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 12,
       src: "./images/man/miniFutbolcu.png",
       cardName: "Futbolçu Suvenir",
       realPrice: "34 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
   ];
   const manCards = document.querySelector(".man-cards");
@@ -723,9 +862,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="star-element">
             ${starMarkup}
         </div>
-        <button>Ətraflı</button>
+        <button class="detail-button">Ətraflı</button>
     `;
       manCards.appendChild(li);
+      const detailButton = li.querySelector(".detail-button");
+      detailButton.addEventListener("click", () => {
+        moduleElementsForMen(element);
+      });
       // -----------cards-clicked-----------
       li.addEventListener("click", () => {
         if (!isCardClickedMan) {
@@ -763,72 +906,96 @@ document.addEventListener("DOMContentLoaded", function () {
       src: "./images/woman/esyaQabi.png",
       cardName: "Əşya qabı Suvenir",
       realPrice: "30 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 2,
       src: "./images/woman/kubik.png",
       cardName: "Kubik Suvenir",
       realPrice: "22 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 3,
       src: "./images/woman/brelok.png",
       cardName: "Açarlıq Suvenir",
       realPrice: "15 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 4,
       src: "./images/woman/mermer.png",
       cardName: "Mərmər Suvenir",
       realPrice: "75 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 5,
       src: "./images/woman/gul.png",
       cardName: "Süni gül Suvenir",
       realPrice: "25 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 6,
       src: "./images/woman/hediyye.png",
       cardName: "Hədiyyəlik Suvenir",
       realPrice: "50 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 7,
       src: "./images/woman/rengliQablar.png",
       cardName: "Rəngli qablar Suvenir",
       realPrice: "44 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 8,
       src: "./images/woman/lampa.png",
       cardName: "Lampa Suvenir",
       realPrice: "40 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 9,
       src: "./images/woman/hediyyelik.png",
       cardName: "Hediyyelik Suvenir",
       realPrice: "53 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 10,
       src: "./images/woman/taxtaLovhe.png",
       cardName: "Taxta lövhə Suvenir",
       realPrice: "39 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 11,
       src: "./images/woman/samQabi.png",
       cardName: "Şam qabı Suvenir",
       realPrice: "32 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
     {
       id: 12,
       src: "./images/woman/taxta.png",
       cardName: "Taxta Suvenir",
       realPrice: "18 AZN",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Suscipit velit neque commodi reprehenderit odio distinctio molestias perspiciatis repellendus quo atque deserunt, mollitia qui sit aliquid labore beatae accusantium consequatur quam libero voluptas in obcaecati facilis dolorem! Quam velit explicabo, pariatur laborum est quo architecto, adipisci possimus, molestias sunt omnis in?",
     },
   ];
   const womanCards = document.querySelector(".woman-cards");
@@ -896,9 +1063,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="star-element">
             ${starMarkup}
         </div>
-        <button>Ətraflı</button>
+        <button class="detail-button">Ətraflı</button>
     `;
       womanCards.appendChild(li);
+      const detailButton = li.querySelector(".detail-button");
+      detailButton.addEventListener("click", () => {
+        moduleElementsForWoman(element);
+      });
       // -----------cards-clicked-----------
       li.addEventListener("click", () => {
         if (!isCardClickedWoman) {
@@ -973,4 +1144,366 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  // -----------module-container---------
+  const moduleContainer = document.querySelector(".module-container");
+  moduleContainer.style.display = "none";
+
+  let cartCount = localStorage.getItem("cartCount")
+    ? parseInt(localStorage.getItem("cartCount"))
+    : 0;
+  function moduleElementsDiscount(element) {
+    moduleContainer.innerHTML = `
+      <div class="module-element">
+        <div class="module-image">
+          <img src="${element.src}" alt="${element.cardName}" />
+        </div>
+        <div class="module-text">
+          <div class="prive-and-about">
+            <h2>${element.cardName}</h2>
+            <div class="prive-element">
+              <h3>Qiymət:</h3>
+              <p>${element.discountPrice}</p>
+            </div>
+            <div class="about-element">
+              <h3>Haqqında</h3>
+              <p>
+                ${element.about}
+              </p>
+            </div>
+          </div>
+          <div class="add-cart-module-element">
+            <button class="back-button">Geri</button>
+            <button class="add-button">Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    moduleContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+
+    const backButton = document.querySelector(".back-button");
+    backButton.addEventListener("click", () => {
+      moduleContainer.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    const addButton = document.querySelector(".add-button");
+    addButton.addEventListener("click", () => {
+      let cartItems = localStorage.getItem("cartItems");
+      cartItems = cartItems ? JSON.parse(cartItems) : [];
+      cartItems.push(element);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      cartCount++;
+      localStorage.setItem("cartCount", cartCount);
+      updateCartCount();
+      moduleContainer.style.display = "none";
+      body.style.overflow = "auto";
+    });
+  }
+  function moduleElementsExclusive(element) {
+    moduleContainer.innerHTML = `
+      <div class="module-element">
+        <div class="module-exc">
+          <p>2+1</p>
+        </div>
+        <div class="module-text">
+          <div class="prive-and-about">
+            <h2>${element.cardName}</h2>
+            <div class="prive-element">
+              <h3>Qiymət:</h3>
+              <p>${sumPrice}</p>
+            </div>
+            <div class="about-element">
+              <h3>Haqqında</h3>
+              <p>
+                ${aboutExclusive}
+              </p>
+            </div>
+          </div>
+          <div class="add-cart-module-element">
+            <button class="back-button">Geri</button>
+            <button class="add-button">Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    moduleContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+
+    const backButton = document.querySelector(".back-button");
+    backButton.addEventListener("click", () => {
+      moduleContainer.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    const addButton = document.querySelector(".add-button");
+    addButton.addEventListener("click", () => {
+      let cartItems = localStorage.getItem("cartItems");
+      cartItems = cartItems ? JSON.parse(cartItems) : [];
+      cartItems.push(element);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      cartCount++;
+      localStorage.setItem("cartCount", cartCount);
+      updateCartCount();
+      moduleContainer.style.display = "none";
+      body.style.overflow = "auto";
+    });
+  }
+  function moduleElementsAllCards(element) {
+    moduleContainer.innerHTML = `
+      <div class="module-element">
+        <div class="module-image">
+          <img src="${element.src}" alt="${element.cardName}" />
+        </div>
+        <div class="module-text">
+          <div class="prive-and-about">
+            <h2>${element.cardName}</h2>
+            <div class="prive-element">
+              <h3>Qiymət:</h3>
+              <p>${element.realPrice}</p>
+            </div>
+            <div class="about-element">
+              <h3>Haqqında</h3>
+              <p>
+                ${element.about}
+              </p>
+            </div>
+          </div>
+          <div class="add-cart-module-element">
+            <button class="back-button">Geri</button>
+            <button class="add-button">Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    moduleContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+
+    const backButton = document.querySelector(".back-button");
+    backButton.addEventListener("click", () => {
+      moduleContainer.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    const addButton = document.querySelector(".add-button");
+    addButton.addEventListener("click", () => {
+      let cartItems = localStorage.getItem("cartItems");
+      cartItems = cartItems ? JSON.parse(cartItems) : [];
+      cartItems.push(element);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      cartCount++;
+      localStorage.setItem("cartCount", cartCount);
+      updateCartCount();
+      moduleContainer.style.display = "none";
+      body.style.overflow = "auto";
+    });
+  }
+  function moduleElementsForMen(element) {
+    moduleContainer.innerHTML = `
+      <div class="module-element">
+        <div class="module-image">
+          <img src="${element.src}" alt="${element.cardName}" />
+        </div>
+        <div class="module-text">
+          <div class="prive-and-about">
+            <h2>${element.cardName}</h2>
+            <div class="prive-element">
+              <h3>Qiymət:</h3>
+              <p>${element.realPrice}</p>
+            </div>
+            <div class="about-element">
+              <h3>Haqqında</h3>
+              <p>
+                ${element.about}
+              </p>
+            </div>
+          </div>
+          <div class="add-cart-module-element">
+            <button class="back-button">Geri</button>
+            <button class="add-button">Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    moduleContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+
+    const backButton = document.querySelector(".back-button");
+    backButton.addEventListener("click", () => {
+      moduleContainer.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    const addButton = document.querySelector(".add-button");
+    addButton.addEventListener("click", () => {
+      let cartItems = localStorage.getItem("cartItems");
+      cartItems = cartItems ? JSON.parse(cartItems) : [];
+      cartItems.push(element);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      cartCount++;
+      localStorage.setItem("cartCount", cartCount);
+      updateCartCount();
+      moduleContainer.style.display = "none";
+      body.style.overflow = "auto";
+    });
+  }
+
+  function moduleElementsForWoman(element) {
+    moduleContainer.innerHTML = `
+      <div class="module-element">
+        <div class="module-image">
+          <img src="${element.src}" alt="${element.cardName}" />
+        </div>
+        <div class="module-text">
+          <div class="prive-and-about">
+            <h2>${element.cardName}</h2>
+            <div class="prive-element">
+              <h3>Qiymət:</h3>
+              <p>${element.realPrice}</p>
+            </div>
+            <div class="about-element">
+              <h3>Haqqında</h3>
+              <p>
+                ${element.about}
+              </p>
+            </div>
+          </div>
+          <div class="add-cart-module-element">
+            <button class="back-button">Geri</button>
+            <button class="add-button">Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    moduleContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+
+    const backButton = document.querySelector(".back-button");
+    backButton.addEventListener("click", () => {
+      moduleContainer.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    const addButton = document.querySelector(".add-button");
+    addButton.addEventListener("click", () => {
+      let cartItems = localStorage.getItem("cartItems");
+      cartItems = cartItems ? JSON.parse(cartItems) : [];
+      cartItems.push(element);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      cartCount++;
+      localStorage.setItem("cartCount", cartCount);
+      updateCartCount();
+      moduleContainer.style.display = "none";
+      body.style.overflow = "auto";
+    });
+  }
+  // ----------scroll-smooth---------
+  document.querySelectorAll(".menu-list-in-menu-bar a").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+  // ----------scroll-smooth---------
+  document.querySelectorAll(".menu-list a").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+  // ---------------basket----------
+  updateCartCount();
+  function updateCartCount() {
+    const basketShopping = document.querySelector(".basket-shopping");
+    basketShopping.innerHTML = `
+    <i class="fa-solid fa-bag-shopping"></i>
+    <p>${cartCount}</p>
+  `;
+  }
+  // -----------basket-cart------------
+  const basketCartContainer = document.querySelector(".basket-cart-container");
+  const basketShopping = document.querySelector(".basket-shopping");
+  const basketCartList = document.querySelector(".basket-cart-list");
+  const totalPriceElement = document.querySelector(".total");
+  basketCartContainer.style.display = "none";
+
+  basketShopping.addEventListener("click", () => {
+    basketCartContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+    basketCartElements();
+  });
+  function basketCartElements() {
+    let cartItems = localStorage.getItem("cartItems");
+    cartItems = cartItems ? JSON.parse(cartItems) : [];
+
+    basketCartList.innerHTML = "";
+
+    let totalPrice = 0;
+
+    cartItems.forEach((item, index) => {
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `
+        <div class="basket-cart-image">
+          <img src="${item.src}" alt="" />
+        </div>
+        <div class="basket-text">
+          <p class="basket-car-name">${item.cardName}</p>
+          <div class="basket-price">
+            <p>${item.realPrice} AZN</p>
+            <i class="fa-regular fa-circle-xmark xIcon-basket" data-index="${index}"></i>
+          </div>
+        </div>
+      `;
+
+      basketCartList.appendChild(listItem);
+
+      totalPrice += parseFloat(item.realPrice);
+    });
+
+    totalPriceElement.textContent = `${totalPrice} AZN`;
+
+    const backBasketClose = document.querySelector(".back-basket");
+    backBasketClose.addEventListener("click", () => {
+      basketCartContainer.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    const deleteIcons = document.querySelectorAll(".xIcon-basket");
+    deleteIcons.forEach((icon) => {
+      icon.addEventListener("click", (event) => {
+        const index = event.target.dataset.index;
+        cartItems.splice(index, 1);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        cartCount--;
+        localStorage.setItem("cartCount", cartCount);
+        updateCartCount();
+
+        basketCartElements();
+      });
+    });
+  }
 });
