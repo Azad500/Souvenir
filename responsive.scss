@@ -1,0 +1,55 @@
+@mixin responsiveMax425 {
+  @media screen and (max-width: 425px) {
+    @content;
+  }
+}
+@mixin responsiveMax425to768 {
+  @media screen and (min-width: 426px) and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin responsiveMax450 {
+  @media screen and (max-width: 450px) {
+    @content;
+  }
+}
+@mixin responsiveMax550 {
+  @media screen and (max-width: 550px) {
+    @content;
+  }
+}
+@mixin responsiveMax550to768 {
+  @media screen and (min-width: 551px) and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin responsiveMax650 {
+  @media screen and (max-width: 650px) {
+    @content;
+  }
+}
+@mixin responsiveMax768 {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin responsive768to1024 {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin responsiveMax1024 {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin responsiveMax1024to1400 {
+  @media screen and (min-width: 1024px) and (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin responsiveMax1400 {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}

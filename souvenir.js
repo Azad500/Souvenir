@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="star-element">
               ${starMarkup}
           </div>
-          <button>Sifariş ver</button>
+          <button>Ətraflı</button>
           <h4>Tələs, endirim bitmədən sifariş ver!</h4>
       `;
     discountCards.appendChild(li);
@@ -552,7 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="star-element">
           ${starMarkup}
         </div>
-        <button>Sifariş ver</button>
+        <button>Ətraflı</button>
     `;
       allCards.appendChild(li);
       // -----------cards-clicked-----------
@@ -723,7 +723,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="star-element">
             ${starMarkup}
         </div>
-        <button>Sifariş ver</button>
+        <button>Ətraflı</button>
     `;
       manCards.appendChild(li);
       // -----------cards-clicked-----------
@@ -896,7 +896,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="star-element">
             ${starMarkup}
         </div>
-        <button>Sifariş ver</button>
+        <button>Ətraflı</button>
     `;
       womanCards.appendChild(li);
       // -----------cards-clicked-----------
@@ -933,5 +933,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbarLogoImage = document.querySelector(".navbar-image");
   navbarLogoImage.addEventListener("click", () => {
     window.location.reload();
+  });
+  // -----------chat-element---------
+  const chatElement = document.querySelector(".chat-element");
+  const chatContainer = document.querySelector(".chat-menu-container");
+  chatContainer.style.display = "none";
+  chatElement.addEventListener("click", () => {
+    chatContainer.style.display = "block";
+  });
+  const xİcon = document.querySelector(".close-element i");
+  xİcon.addEventListener("click", () => {
+    chatContainer.style.display = "none";
+  });
+  // --------menu-bar-------
+  const menuBar = this.documentElement.querySelector(".menu-bar");
+  const menuContainer = document.querySelector(".menu-bar-container");
+  const menuBarXIcon = document.querySelector(".x-icon-menu-bar i");
+  const menuListInMenuBar = document.querySelectorAll(
+    ".menu-list-in-menu-bar li"
+  );
+  const body = document.querySelector("body");
+  menuContainer.style.display = "none";
+  menuBar.addEventListener("click", () => {
+    menuContainer.style.display = "flex";
+    body.style.overflow = "hidden";
+  });
+  menuBarXIcon.addEventListener("click", () => {
+    menuContainer.style.display = "none";
+    body.style.overflow = "auto";
+  });
+  menuListInMenuBar.forEach((element) => {
+    element.addEventListener("click", () => {
+      if (
+        menuContainer.style.display === "flex" &&
+        body.style.overflow === "hidden"
+      ) {
+        menuContainer.style.display = "none";
+        body.style.overflow = "auto";
+      }
+    });
   });
 });

@@ -6,6 +6,7 @@
     <title>Monoliza Suvenir</title>
     <link rel="icon" type="image/png" href="./images/logo/souvenir-logo.png" />
     <link rel="stylesheet" href="./souvenir.css" />
+    <link rel="stylesheet" href="./responsive.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -15,10 +16,90 @@
     />
   </head>
   <body>
+    <!-- ----------menu-bar--------- -->
+    <div class="menu-bar-container">
+      <div class="menu-bar-element">
+        <div class="x-icon-menu-bar">
+          <i class="fa-regular fa-circle-xmark xIcon-menuBar"></i>
+        </div>
+        <div class="logo-in-menu-bar-container">
+          <div class="logo-in-menu-bar-element">
+            <img src="./images/logo/souvenir-logo.png" alt="logo-in-menu-bar" />
+          </div>
+          <h2>Monoliza Suvenir</h2>
+        </div>
+        <ul class="menu-list-in-menu-bar">
+          <li>
+            <a href="#trending">Trenddə olan məhsullar</a>
+          </li>
+          <li>
+            <a href="#gifts">Hədiyyələr</a>
+          </li>
+          <li>
+            <a href="#allProducts">Bütün məhsullar</a>
+          </li>
+          <li>
+            <a href="#man">Kişilər üçün</a>
+          </li>
+          <li>
+            <a href="#woman">Xanımlar üçün</a>
+          </li>
+        </ul>
+        <ul class="sosial-network-in-menu-bar">
+          <li>
+            <a href="tel:+994123456789">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ----------chat-menu---------- -->
+    <div class="chat-menu-container">
+      <div class="chat">
+        <div class="close-element">
+          <h4>Çat</h4>
+          <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <ul class="messages">
+          <li class="bot-message">
+            <p>* Salam, sizə necə kömək edə bilərəm?</p>
+          </li>
+          <li class="user-message">
+            <p></p>
+          </li>
+        </ul>
+        <form class="text-input">
+          <input
+            type="text"
+            name="text"
+            id="text"
+            placeholder="Mesajınızı bura yazın..."
+            required
+          />
+          <input type="submit" name="submit" id="submit" value=">>" />
+        </form>
+      </div>
+    </div>
     <!-- ------header------ -->
     <header id="header">
       <nav>
-        <!-- ---------up-side-nav--------- -->
+        <!-- -------up-side-nav------- -->
         <div class="up-side-nav">
           <div class="left-side">
             <div class="logo-name">
@@ -28,35 +109,38 @@
               <h1>Monoliza Suvenir</h1>
             </div>
           </div>
+          <!-- --------right-side--------- -->
           <ul class="right-side">
             <li class="search-element">
               <input
                 type="text"
-                name="search"
-                id="search"
+                name="search-responsive"
+                id="search-responsive"
                 placeholder="Axtar..."
               />
               <i class="fa-solid fa-magnifying-glass"></i>
             </li>
-            <li>
+            <li class="chat-element">
               <i class="fa-regular fa-message"></i>
               <p>Çat</p>
             </li>
-            <li>
-              <i class="fa-solid fa-phone"></i>
-              <p>+994 01 234 56 78</p>
-            </li>
-            <li>
-              <i class="fa-regular fa-heart"></i>
+            <li class="phone-number">
+              <a href="tel:+994012345678">
+                <i class="fa-solid fa-phone"></i>
+                <p>+994 01 234 56 78</p>
+              </a>
             </li>
             <li class="basket-shopping">
               <i class="fa-solid fa-bag-shopping"></i>
               <p>0</p>
             </li>
+            <li class="menu-bar">
+              <i class="fa-solid fa-bars"></i>
+            </li>
           </ul>
         </div>
       </nav>
-      <!-- ---------down-side-nav--------- -->
+      <!-- -------down-side-nav------- -->
       <div class="down-side-nav">
         <ul class="menu-list">
           <li>
@@ -76,14 +160,21 @@
           </li>
         </ul>
       </div>
-      <!-- -----------discount-------- -->
+      <!-- --------search-container-for-responsive--------- -->
+      <div class="search-container">
+        <div class="search-part">
+          <input type="text" name="search" id="search" placeholder="Axtar..." />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <!-- --------discount-container--------- -->
       <div class="discount-container">
         <div class="discount-element">
           <a href="#gifts">Ekskuliziv təklif</a>
           <p>2 məhsul al 1 məhsul bizdən hədiyyə</p>
         </div>
       </div>
-      <!-- --------mirable-image--------- -->
+      <!-- ----------mirable-container--------- -->
       <div class="mirable-container">
         <div class="mirable-image">
           <img src="./images/header/marble_image.jpg" alt="mirable image" />
@@ -99,27 +190,24 @@
             </div>
           </div>
         </div>
+        <section class="discount-cards-container">
+          <div class="discount-cards">
+            <div class="discount-cards-element">
+              <h2>Endirimdə olan məhsullar!</h2>
+              <ul class="cards-discount"></ul>
+            </div>
+          </div>
+        </section>
       </div>
     </header>
     <!-- ------main------ -->
     <main>
-      <!-- -------discount-cards------ -->
-      <section class="discount-cards-container">
-        <div class="discount-cards">
-          <div class="discount-cards-element">
-            <h2>Endirimdə olan məhsullar!</h2>
-            <ul class="cards-discount"></ul>
-          </div>
-        </div>
-      </section>
-      <!-- ----------trending-cards--------- -->
       <section class="trending-cards-container">
         <div class="trending-cards-element">
           <h2 id="trending">Trenddə olan məhsullar</h2>
           <ul class="cards-trending"></ul>
         </div>
       </section>
-      <!-- ----------exclusive-cards--------- -->
       <section class="exclusive-container">
         <div class="exclusive-element">
           <h2 id="gifts">Ekskluziv təklif</h2>
@@ -129,10 +217,9 @@
             <p class="plus-element">+</p>
             <div class="exc-card"></div>
           </div>
-          <button class="order-now-container">İndi Sifariş Ver</button>
+          <button class="order-now-container">Ətraflı</button>
         </div>
       </section>
-      <!-- ------------all-cards---------- -->
       <section class="all-cards-container">
         <div class="all-cards-element">
           <div class="upside-all-cards">
@@ -142,7 +229,6 @@
           <div class="pagination-in-all-cards"></div>
         </div>
       </section>
-      <!-- ------------men---------- -->
       <section id="man" class="man-container">
         <div class="man-element">
           <div class="man-image-container">
@@ -155,7 +241,6 @@
           <div class="pagination-in-man-cards"></div>
         </div>
       </section>
-      <!-- ------------woman---------- -->
       <section id="woman" class="woman-container">
         <div class="woman-element">
           <div class="woman-image-container">
@@ -168,7 +253,6 @@
           <div class="pagination-in-woman-cards"></div>
         </div>
       </section>
-      <!-- ------------evaluation---------- -->
       <section class="evaluation-container">
         <div class="evaluation-element">
           <h2>Bizim sözümüz, məhsullarımızın keyfiyyətidir!</h2>
@@ -198,7 +282,6 @@
     <!-- ------footer------ -->
     <footer>
       <section class="footer-container">
-        <!-- --------menu-list-in-footer-------- -->
         <ul class="menu-list-in-footer">
           <li>
             <a href="#trending">Trenddə olan məhsullar</a>
@@ -216,7 +299,6 @@
             <a href="#woman">Xanımlar üçün</a>
           </li>
         </ul>
-        <!-- --------sosial-network-------- -->
         <div class="sosial-container">
           <a href="#header" class="footer-logo">
             <img src="./images/logo/souvenir-logo.png" alt="footer logo" />
@@ -244,7 +326,6 @@
             </li>
           </ul>
         </div>
-        <!-- --------mail------------ -->
         <form>
           <input
             type="email"
