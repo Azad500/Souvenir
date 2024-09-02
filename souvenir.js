@@ -682,7 +682,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-  function renderAllCardsPagination(currentPage) {
+  function renderAllCardsPagination(cards, currentPage) {
     paginationAllCards.innerHTML = "";
     for (let i = 1; i <= numberOfPages; i++) {
       const pageLink = document.createElement("button");
