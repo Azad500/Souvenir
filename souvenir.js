@@ -575,15 +575,17 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
   const allCards = document.querySelector(".cards-all");
+  const searchResponsive = document.getElementById("search-responsive");
   const paginationAllCards = document.querySelector(".pagination-in-all-cards");
   let isCardClicked = false;
   const recordsPerPage = 8;
-  const numberOfPages = Math.ceil(allCardsElement.length / recordsPerPage);
+  let filteredCardsElement = [...allCardsElement];
+  const numberOfPages = Math.ceil(filteredCardsElement.length / recordsPerPage);
 
   function renderAllCards(page) {
     const startIndex = (page - 1) * recordsPerPage;
     const endIndex = startIndex + recordsPerPage;
-    const paginatedRecords = allCardsElement.slice(startIndex, endIndex);
+    const paginatedRecords = filteredCardsElement.slice(startIndex, endIndex);
 
     allCards.innerHTML = "";
 
@@ -682,7 +684,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-  function renderAllCardsPagination(cards, currentPage) {
+  function renderAllCardsPagination(currentPage) {
     paginationAllCards.innerHTML = "";
     for (let i = 1; i <= numberOfPages; i++) {
       const pageLink = document.createElement("button");
@@ -698,6 +700,20 @@ document.addEventListener("DOMContentLoaded", function () {
       paginationAllCards.appendChild(pageLink);
     }
   }
+  searchResponsive.addEventListener("keyup", (e) => {
+    const query = e.target.value.toLowerCase();
+    filteredCardsElement = allCardsElement.filter((card) =>
+      card.cardName.toLowerCase().includes(query)
+    );
+    if (query !== "") {
+      paginationAllCards.style.display = "none";
+    } else {
+      filteredCardsElement = [...allCardsElement];
+      paginationAllCards.style.display = "flex";
+    }
+    renderAllCards(1);
+    renderAllCardsPagination(1);
+  });
   renderAllCards(1);
   renderAllCardsPagination(1);
   // ----------------man-cards--------------
@@ -1178,7 +1194,6 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `;
-
     moduleContainer.style.display = "flex";
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
@@ -1467,7 +1482,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const listItem = document.createElement("li");
       listItem.innerHTML = `
         <div class="basket-cart-image">
-          <img src="${item.src}" alt="" />
+          <img src="${item.src}" alt="image" />
         </div>
         <div class="basket-text">
           <p class="basket-car-name">${item.cardName}</p>

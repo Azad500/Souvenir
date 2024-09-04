@@ -1391,7 +1391,7 @@ main {
           width: 100%;
           list-style: none;
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-start;
           flex-wrap: wrap;
           gap: 20px;
           @include responsiveMax768 {

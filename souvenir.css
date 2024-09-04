@@ -1548,7 +1548,7 @@ main .all-cards-container .all-cards-element .upside-all-cards .cards-all {
   width: 100%;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
 }
